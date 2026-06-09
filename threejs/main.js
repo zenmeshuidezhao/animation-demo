@@ -1,1 +1,1 @@
-import  './js/6.js';
+import  './js/7.js';
