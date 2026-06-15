@@ -45,7 +45,22 @@ loadingManager.onError = (url) => {
 const textureLoader = new THREE.TextureLoader(loadingManager);
 const colorTexture = textureLoader.load('../static/textures/door/color.jpg');
 
-colorTexture.repeat.x = 2;
+// 设置纹理包裹模式为重复
+colorTexture.wrapS = THREE.RepeatWrapping; // 水平方向重复
+colorTexture.wrapT = THREE.RepeatWrapping; // 垂直方向重复
+colorTexture.repeat.x = 2; // 在U方向（水平）重复2次
+colorTexture.repeat.y = 3; // 在V方向（垂直）重复3次
+
+colorTexture.offset.x = 0.5;
+colorTexture.offset.y = 0.5;
+
+colorTexture.rotation = Math.PI / 4;
+colorTexture.center.x = 0.5;
+colorTexture.center.y = 0.5;
+
+colorTexture.generateMipmaps = false;
+colorTexture.minFilter = THREE.NearestFilter;
+colorTexture.magFilter = THREE.NearestFilter;
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 const material = new THREE.MeshBasicMaterial({ map: colorTexture });
@@ -62,7 +77,6 @@ const controls = new OrbitControls(camera, canvas);
 
 const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(window.innerWidth, window.innerHeight);
-
 
 const tick = () => {
     controls.update();
