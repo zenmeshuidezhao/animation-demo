@@ -56,7 +56,7 @@ let textMesh = null
 
 fontLoader.load('/static/fonts/helvetiker_regular.typeface.json', (font) => {
 
-  const textGeometry = new TextGeometry('Hello Three.js', {
+  const textGeometry = new TextGeometry('HELLO WORLD', {
     font,
     size: 0.6,
     depth: 0.2,
