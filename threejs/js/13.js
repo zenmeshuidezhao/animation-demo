@@ -31,10 +31,20 @@ const grassAmbientOcclusionTexture = textureLoader.load('../static/textures/gras
 const grassNormalTexture = textureLoader.load('../static/textures/grass/normal.jpg')
 const grassRoughnessTexture = textureLoader.load('../static/textures/grass/roughness.jpg')
 
-grassColorTexture.repeat.set(8, 8).repeat.set(8, 8)
+grassColorTexture.repeat.set(8, 8)
 grassAmbientOcclusionTexture.repeat.set(8, 8)
 grassNormalTexture.repeat.set(8, 8)
 grassRoughnessTexture.repeat.set(8, 8)
+
+grassColorTexture.wrapS = THREE.RepeatWrapping
+grassAmbientOcclusionTexture.wrapS = THREE.RepeatWrapping
+grassNormalTexture.wrapS = THREE.RepeatWrapping
+grassRoughnessTexture.wrapS = THREE.RepeatWrapping
+
+grassColorTexture.wrapT= THREE.RepeatWrapping
+grassAmbientOcclusionTexture.wrapT = THREE.RepeatWrapping
+grassNormalTexture.wrapT = THREE.RepeatWrapping
+grassRoughnessTexture.wrapT = THREE.RepeatWrapping
 // House
 const house = new THREE.Group()
 scene.add(house)
